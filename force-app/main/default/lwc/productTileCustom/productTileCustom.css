@@ -1,0 +1,11 @@
+img {
+  height: 120px;
+  max-width: inhitial;
+  pointer-events: none;
+}
+
+.content {
+  padding: 10px;
+  background-color: #FFF;
+  border-radius: 5px;
+}

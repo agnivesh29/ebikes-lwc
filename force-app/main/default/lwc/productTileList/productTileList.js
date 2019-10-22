@@ -63,6 +63,8 @@ export default class ProductTileList extends LightningElement {
     }
 
     handleFilterChange(filters) {
+        console.log('handleSearchKey method in productTileList');
+        
         this.filters = { ...filters };
         this.pageNumber = 1;
     }

@@ -1,0 +1,12 @@
+<template>
+    <lightning-card icon-name="standard:product_item"  >
+        <!-- title={product.data.fields.Name.Value} -->
+        <!-- Custom Product Card Component
+    Selected Product Id: {productId}
+    Product: {productString}     -->
+        <template if:true={product.data}></template>
+        <template if:false={product.data}>
+          <c-placeholder message="Select a product to see details"></c-placeholder>
+        </template>
+    </lightning-card>
+</template>

@@ -1,0 +1,15 @@
+<template>
+  <div class="slps-p-around_small tile-list-wrap">
+    <!-- Custom file list controller -->
+    <template if:true={products.data}>
+      <template if:true={products.data.records.length}>
+          <div class="content">
+            <template for:each={products.data.records} for:item='product'>
+              <!-- <c-product-tile draggable={draggable} product={product} key={product.Id} class="slds-m-around_small" onselected={notifyproductselection}></c-product-tile> -->
+              <c-product-tile-custom key={product.Id} product={product} class="product slds-m-around_x-small" onselected={notifyproductselection}></c-product-tile-custom>
+            </template>
+          </div>
+      </template>
+    </template>
+  </div>
+</template>

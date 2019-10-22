@@ -1,0 +1,62 @@
+<template>
+    <lightning-card title="Filters" icon-name="action:filter">
+        <div class="slds-m-horizontal_medium">
+            <!-- <section class="slds-m-top_medium">Custom card</section> -->
+
+            <section class="slds-m-top_medium">
+                <lightning-input
+                    type="search"
+                    label="Search key"
+										name="enter-search"
+										onblur={handleBlur}
+                ></lightning-input>
+            </section>
+
+            <section class="slds-m-top_medium">
+                <lightning-slider
+                    label="Max price"
+                    step="100"
+                    max="10000"
+                    min="100"
+										value={maxPrice}
+										onchange={handleMaxPriceChange}
+                ></lightning-slider>
+            </section>
+            <!-- <template if:true={categoryOptions.length}></template> -->
+            <section class="slds-m-top_medium">
+                <h1 class="slds-text-title_caps">Category</h1>
+                <lightning-checkbox-group
+                    name="product-category"
+                    label=""
+                    variant="label-hidden"
+                    options={categoryOptions}
+                    value={categoryValues}
+                    onchange={handleChange}
+                ></lightning-checkbox-group>
+            </section>
+
+            <section class="slds-m-top_medium">
+                <h1 class="slds-text-title_caps">Material</h1>
+                <lightning-checkbox-group
+                    name="material"
+                    label=""
+                    variant="label-hidden"
+                    options={materialOptions}
+                    value={materialValues}
+                    onchange={handleChange}
+                ></lightning-checkbox-group>
+            </section>
+            <section class="slds-m-top_medium">
+                <h1 class="slds-text-title_caps">Level</h1>
+                <lightning-checkbox-group
+                    name="level"
+                    label=""
+                    variant="label-hidden"
+                    options={levelOptions}
+                    value={levelValues}
+                    onchange={handleChange}
+                ></lightning-checkbox-group>
+            </section>
+        </div>
+    </lightning-card>
+</template>
