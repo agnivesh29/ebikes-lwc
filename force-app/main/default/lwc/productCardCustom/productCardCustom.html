@@ -4,7 +4,20 @@
         <!-- Custom Product Card Component
     Selected Product Id: {productId}
     Product: {productString}     -->
-        <template if:true={product.data}></template>
+        <template if:true={product.data}>
+            <span slot="title">{product.data.fields.Name.value}</span>
+            <lightning-button-icon
+                icon-name="utility:expand_alt"
+                slot="actions"
+                onclick={handleNavigateToRecord}
+            ></lightning-button-icon>
+
+            <div class=content-wrap>
+                <div class="bike-details">
+                    <img src={product.data.fields.Picture_URL__c.value} alt="bike image" class="bike-img"/>
+                </div>
+            </div>
+        </template>
         <template if:false={product.data}>
           <c-placeholder message="Select a product to see details"></c-placeholder>
         </template>
