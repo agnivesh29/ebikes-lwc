@@ -15,11 +15,17 @@
             <div class=content-wrap>
                 <div class="bike-details">
                     <img src={product.data.fields.Picture_URL__c.value} alt="bike image" class="bike-img"/>
+                    <ul>
+                        <li>Category:&nbsp;{product.data.fields.Category__c.value}</li>
+                        <li>Level:&nbsp;{product.data.fields.Level__c.value}</li>
+                        <li>MSRP:&nbsp;{product.data.fields.MSRP__c.value}</li>
+                    </ul>
+                    
                 </div>
             </div>
         </template>
         <template if:false={product.data}>
-          <c-placeholder message="Select a product to see details"></c-placeholder>
+            <c-placeholder message="Select a product to see details"></c-placeholder>
         </template>
     </lightning-card>
 </template>

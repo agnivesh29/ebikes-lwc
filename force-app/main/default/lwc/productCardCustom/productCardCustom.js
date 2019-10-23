@@ -14,6 +14,7 @@ import MATERIAL from '@salesforce/schema/product__c.Material__c';
 import FORK from '@salesforce/schema/product__c.Fork__c';
 import FRONT_BRAKE from '@salesforce/schema/product__c.Front_Brakes__c';
 import REAR_BRAKE from '@salesforce/schema/product__c.Rear_Brakes__c';
+import LEVEL from '@salesforce/schema/product__c.Level__c';
 
 const fields = [
   NAME,
@@ -26,7 +27,8 @@ const fields = [
   MATERIAL,
   FORK,
   FRONT_BRAKE,
-  REAR_BRAKE
+  REAR_BRAKE,
+  LEVEL
 ];
 
 export default class ProductCardCustom extends LightningElement {
