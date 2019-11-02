@@ -11,7 +11,7 @@
                 slot="actions"
                 onclick={handleNavigateToRecord}
             ></lightning-button-icon>
-
+            {stringifiedProduct}
             <div class="content-wrap slds-p-left_medium">
                 <div class="bike-details">
                     <img
@@ -19,7 +19,8 @@
                         alt="bike image"
                         class="bike-img"
                     />
-                    <ul>
+                    
+                    <!-- <ul>
                         <li>
                             Category:&nbsp;{product.data.fields.Category__c.value}
                         </li>
@@ -27,7 +28,7 @@
                             Level:&nbsp;{product.data.fields.Level__c.value}
                         </li>
                         <li>MSRP:&nbsp;{product.data.fields.MSRP__c.value}</li>
-                    </ul>
+                    </ul> -->
 
                     <div class="item">
                         <div>Category:</div>
@@ -39,7 +40,48 @@
                     </div>
                     <div class="item">
                         <div>MSRP:</div>
-                        <div>{product.data.fields.MSRP__c.value}</div>
+                        <div>
+                        <lightning-formatted-number value={product.data.fields.MSRP__c.value} 
+                            currency-code="USD" 
+                            format-style="currency"
+                            currency-display-as="symbol"
+                            class="price"
+                        >
+                        </lightning-formatted-number>
+                        </div>  
+                    </div>
+                    <section>Electric Components</section>
+                    <div class="item">
+                        <div>Battery:</div>
+                        <div>500Wh</div>
+                    </div>
+                    <div class="item">
+                        <div>Charger:</div>
+                        <div>42V4A</div>
+                    </div>
+                    <div class="item">
+                        <div>Motor:</div>
+                        <div>250 watt, 75Nm</div>
+                    </div>
+
+                    <section>Frame</section>
+                    <div class="item">
+                        <div>Frame:</div>
+                        <div>{product.data.fields.Material__c.value}</div>
+                    </div>
+                    <div class="item">
+                        <div>Fork:</div>
+                        <div>Air spring, adjustable rebound</div>
+                    </div>
+
+                    <section>Brakes</section>
+                    <div class="item">
+                        <div>Front:</div>
+                        <div>Hydraulic disc, 200mm</div>
+                    </div>
+                    <div class="item">
+                        <div>Rear</div>
+                        <div>Hydraulic disc, 200mm</div>
                     </div>
                 </div>
             </div>

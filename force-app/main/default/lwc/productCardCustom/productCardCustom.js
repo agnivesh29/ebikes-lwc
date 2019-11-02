@@ -2,6 +2,7 @@ import { LightningElement, wire, track } from 'lwc';
 import {getRecord, getFieldValue} from 'lightning/uiRecordApi';
 import {CurrentPageReference} from 'lightning/navigation';
 import {registerListener, unregisterAllListeners} from 'c/pubsub';
+import { NavigationMixin } from 'lightning/navigation';
 
 import NAME from '@salesforce/schema/product__c.Name';
 import CATEGORY from '@salesforce/schema/product__c.Category__c';
@@ -31,7 +32,7 @@ const fields = [
   LEVEL
 ];
 
-export default class ProductCardCustom extends LightningElement {
+export default class ProductCardCustom extends NavigationMixin(LightningElement) {
     @track
     productId;
     product;
@@ -42,6 +43,10 @@ export default class ProductCardCustom extends LightningElement {
     pageRef;
     placeholderImage = ''
 
+    get stringifiedProduct() {
+      return JSON.stringify(this.product);
+    }
+
     @wire(getRecord, {'recordId': '$productId', 'fields': fields})
     product;
     // wiredGetProduct({data,error}) {
@@ -50,6 +55,23 @@ export default class ProductCardCustom extends LightningElement {
     //   else if(error)
     //     this.productErr = error;
     // }
+
+    handleNavigateToRecord() {
+      // const cycleId = this.bear.Id;
+      this[NavigationMixin.Navigate]({
+        type: 'standard__recordPage',
+        // attributes: {
+        //   recordId: this.productId,
+        //   objectApiName: 'Product__c',
+        //   actionName: 'view'
+        // }
+        attributes: {
+          recordId: this.productId,
+          objectApiName: 'Product__c',
+          actionName: 'view'
+        }
+      });
+    }
 
     handleProductSelection(event) {
       this.productId = event;

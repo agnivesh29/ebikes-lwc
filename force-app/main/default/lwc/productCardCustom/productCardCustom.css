@@ -1,3 +1,27 @@
 .bike-img {
     width: 100%;
 }
+
+.item {
+    display: flex;
+    border-bottom: 1px solid #f3f2f2;
+}
+
+.item :first-child {
+    width: 80px;
+}
+
+.item div:nth-child(2) {
+    flex: 1;
+}
+
+.price{
+    color: #c23335;
+}
+
+section {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 13px;
+    margin-top: 10px;
+}
